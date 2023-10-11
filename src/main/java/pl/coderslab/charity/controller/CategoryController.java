@@ -1,7 +1,7 @@
-package pl.coderslab.charity.controllers;
+package pl.coderslab.charity.controller;
 
 import org.springframework.stereotype.Controller;
-import pl.coderslab.charity.services.CategoryService;
+import pl.coderslab.charity.service.CategoryService;
 
 @Controller
 public class CategoryController {
@@ -13,4 +13,3 @@ public class CategoryController {
 
 
 }
-

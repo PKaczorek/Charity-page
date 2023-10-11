@@ -1,4 +1,4 @@
-package pl.coderslab.charity.services;
+package pl.coderslab.charity.service;
 
 import org.springframework.stereotype.Service;
 import pl.coderslab.charity.entity.User;
@@ -16,6 +16,7 @@ public class UserService {
     }
 
     public User saveUser(User user){
+
         return userRepository.save(user);
     }
 

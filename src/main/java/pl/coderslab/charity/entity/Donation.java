@@ -16,13 +16,19 @@ public class Donation {
     private int quantity;
     @ManyToMany
     private List<Category> categories;
+
     @ManyToOne
     private Institution institution;
+    @ManyToOne
+    private User user;
+
     private String street;
+
     private String city;
     private String zipCode;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate pickUpDate;
+
     private LocalTime pickUpTime;
     private String pickUpComment;
 
@@ -98,11 +104,11 @@ public class Donation {
         this.pickUpComment = pickUpComment;
     }
 
-    public Long getId() {
-        return id;
-    }
-
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getId() {
+        return id;
     }
 }

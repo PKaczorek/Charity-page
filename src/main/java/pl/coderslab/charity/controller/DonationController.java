@@ -1,4 +1,4 @@
-package pl.coderslab.charity.controllers;
+package pl.coderslab.charity.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +10,7 @@ import pl.coderslab.charity.entity.Donation;
 import pl.coderslab.charity.entity.Institution;
 import pl.coderslab.charity.entity.User;
 import pl.coderslab.charity.repository.UserRepository;
-import pl.coderslab.charity.services.DonationService;
+import pl.coderslab.charity.service.DonationService;
 
 import java.security.Principal;
 import java.util.List;
@@ -26,7 +26,7 @@ public class DonationController {
         this.userRepository = userRepository;
     }
 
-    @GetMapping("/giveDonation")
+    @GetMapping("/giveDonationForm")
     public String showCategory(Principal principal, Model model) {
         String email = principal.getName();
         User user = userRepository.findByEmail(email);
@@ -41,7 +41,7 @@ public class DonationController {
     }
 
 
-    @PostMapping("/confirmation")
+    @PostMapping("/form-confirmation")
     public String formConfirmationPage(@ModelAttribute Donation donation) {
         donationService.saveDonation(donation);
         return "form-confirmation";

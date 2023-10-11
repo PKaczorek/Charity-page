@@ -1,12 +1,12 @@
-package pl.coderslab.charity.controllers;
+package pl.coderslab.charity.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.entity.Institution;
-import pl.coderslab.charity.services.DonationService;
-import pl.coderslab.charity.services.InstitutionService;
+import pl.coderslab.charity.repository.UserRepository;
+import pl.coderslab.charity.service.DonationService;
+import pl.coderslab.charity.service.InstitutionService;
 
 import java.util.List;
 
@@ -17,7 +17,8 @@ public class HomeController {
     private final DonationService donationService;
 
 
-    public HomeController(InstitutionService institutionService, DonationService donationService) {
+
+    public HomeController(InstitutionService institutionService, DonationService donationService, UserRepository userRepository) {
         this.institutionService = institutionService;
         this.donationService = donationService;
 
@@ -31,6 +32,7 @@ public class HomeController {
         model.addAttribute("institutions", institutions);
         model.addAttribute("totalBags", totalBags);
         model.addAttribute("totalDonations", totalDonations);
-        return "index";
+        return "home";
     }
+
 }
